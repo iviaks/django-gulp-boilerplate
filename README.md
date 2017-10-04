@@ -17,10 +17,15 @@ What's included?
 
 How to setup project?
 ------
+1. Run `python setup.py`
+
+How to run project?
+------
 1. Setup .env file according to .env.example
 2. Build project `docker-compose build`
-3. Run database `docker-compose run database`
-4. Run project `docker-compose up`
+3. Run database `docker-compose up -d database`
+4. Run node installing `docker-compose run frontend yarn`
+5. Run project `docker-compose up`
 
 Project Structure
 ------
