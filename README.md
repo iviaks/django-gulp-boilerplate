@@ -11,21 +11,29 @@ What's included?
 - [Gulp](https://gulpjs.com/)
 - [Sass](http://sass-lang.com/)
 - [Babel](https://babeljs.io/)
-- [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 - Postgresql 9.6 database
 - Template structure
 
 How to setup project?
 ------
 1. Run `python setup.py`
+2. Setup .env file according to .env.example
+3. Build project `docker-compose build`
+4. Run database `docker-compose up -d database`
+    * Enter to database bash `docker-compose run database bash`
+    * Create user according to .env file `createuser --interactive -P -s`
+    * Create database according to .env file `createdb <dbname> -O <username>`
+    * Leave database container `exit`
+5. Install node dependencies `docker-compose run frontend yarn`
+6. Run backend `docker-compose run backend bash`
+    * Run migrations `python manage.py migrate`
+    * Leave backend container `exit`
 
 How to run project?
 ------
-1. Setup .env file according to .env.example
-2. Build project `docker-compose build`
-3. Run database `docker-compose up -d database`
-4. Run node installing `docker-compose run frontend yarn`
-5. Run project `docker-compose up`
+```bash
+docker-compose up
+```
 
 Project Structure
 ------

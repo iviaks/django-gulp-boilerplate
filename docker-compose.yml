@@ -20,15 +20,14 @@ services:
         container_name: docker-database
         volumes:
             - ./downloads/:/var/www/downloads
-        env_file:
-            - .env
+        environment:
+            - PGHOST=docker-database
+            - PGUSER=postgres
     frontend:
         image: node:8
         container_name: docker-frontend
         working_dir: /var/www/docker/static/
         command: yarn start
-        env_file:
-            - .env
         volumes:
             - ./backend/:/var/www/docker
             - ./frontend/:/var/www/docker/static/
