@@ -1,4 +1,4 @@
-Django-sass-babel-gulp boilerplate
+Django-gulp boilerplate
 ======
 Author: [Max Saykov](https://github.com/iviaks/)
 
@@ -12,6 +12,7 @@ What's included?
 - [Docker compose](https://docs.docker.com/compose/)
 - [Gulp](https://gulpjs.com/)
 - [Sass](http://sass-lang.com/)
+- [Stylus](http://stylus-lang.com/)
 - [Babel](https://babeljs.io/)
 - Postgresql 9.6 database
 - Template structure
@@ -44,6 +45,7 @@ Project Structure
   * **./assets/** Assets folder
     * **./js/** Javascript (including ES2015 syntax)
     * **./scss/** Sass
+    * **./styl/** Stylus
     * **./fonts/** Fonts
     * **./images/** Images
   * **./dist/** Results folder

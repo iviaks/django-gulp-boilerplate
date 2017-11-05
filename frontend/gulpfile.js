@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
+const stylus = require("gulp-stylus");
 const autoprefixer = require("gulp-autoprefixer");
 const minify_css = require("gulp-minify-css");
 const sourcemaps = require("gulp-sourcemaps");
@@ -45,6 +46,27 @@ gulp.task("scss", function() {
     .pipe(gulp.dest("./dist/css/"));
 });
 
+gulp.task("stylus", function() {
+  gulp
+    .src("./assets/styl/**/*.styl")
+    .pipe(sourcemaps.init())
+    .pipe(
+      stylus(
+        {
+          compress: true
+        }
+      )
+    )
+    .pipe(
+      autoprefixer("last 2 version", "> 1%", "Explorer >= 8", {
+        cascade: true
+      })
+    )
+    .pipe(minify_css({ compatibility: "ie8" }))
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest("./dist/css/"));
+});
+
 gulp.task("fonts", function() {
   gulp.src("./assets/fonts/**/*").pipe(gulp.dest("./dist/fonts"));
 });
@@ -55,7 +77,8 @@ gulp.task("images", function() {
 
 gulp.task("watcher", function() {
   gulp.watch("./assets/scss/**/*.scss", ["scss"]);
+  gulp.watch("./assets/styl/**/*.styl", ["stylus"]);
   gulp.watch("./assets/js/**/*.js", ["babel"]);
 });
 
-gulp.task("default", ["scss", "babel", "fonts", "images", "watcher"]);
+gulp.task("default", ["scss", "stylus", "babel", "fonts", "images", "watcher"]);
