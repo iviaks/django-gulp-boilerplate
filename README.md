@@ -4,7 +4,7 @@ Author: [Max Saykov](https://github.com/iviaks/)
 
 What's included?
 ------
-- [Django v1.11.5](https://docs.djangoproject.com/en/1.11/)
+- [Django v1.11.7](https://docs.djangoproject.com/en/1.11/)
 - [Django Rest Framework](http://www.django-rest-framework.org/)
 - [Graphene-Python](http://graphene-python.org/)
 - Python 3.5 based [Dockerfile](https://hub.docker.com/_/python/)
@@ -41,6 +41,7 @@ docker-compose up
 Project Structure
 ------
 * **./backend/** Django web server
+  * **./api/** API application
 * **./frontend/** Main frontend folder
   * **./assets/** Assets folder
     * **./js/** Javascript (including ES2015 syntax)

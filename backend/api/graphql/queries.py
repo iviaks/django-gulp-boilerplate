@@ -1,17 +1,12 @@
-from django.contrib.auth.models import User as UserModel
-from graphene_django import DjangoObjectType
 import graphene
+from api.graphql.types import UserType
+from django.contrib.auth.models import User as UserModel
 
 
-class User(DjangoObjectType):
-    class Meta:
-        model = UserModel
-
-
-class Query(graphene.ObjectType):
-    users = graphene.List(User)
+class UserQuery(graphene.ObjectType):
+    users = graphene.List(UserType)
     user = graphene.Field(
-        User, id=graphene.Int(),
+        UserType, id=graphene.Int(),
         email=graphene.String(), username=graphene.String()
     )
 
@@ -36,6 +31,3 @@ class Query(graphene.ObjectType):
                 return UserModel.objects.get(username=kwargs.get('username'))
 
         return None
-
-
-schema = graphene.Schema(query=Query)

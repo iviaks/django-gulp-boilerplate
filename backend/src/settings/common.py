@@ -158,7 +158,7 @@ MEDIA_URL = '/media/'
 # GraphQL
 
 GRAPHENE = {
-    'SCHEMA': 'api.schema.schema'
+    'SCHEMA': 'api.graphql.schema.schema'
 }
 
 # REST framework

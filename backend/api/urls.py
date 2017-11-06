@@ -1,10 +1,6 @@
 from django.conf.urls import url, include
 from graphene_django.views import GraphQLView
-from rest_framework import routers
-from api.views import UserViewSet
-
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+from api.rest.router import router
 
 
 urlpatterns = [
