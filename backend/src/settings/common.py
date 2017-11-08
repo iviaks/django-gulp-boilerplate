@@ -183,6 +183,15 @@ ACCOUNT_USER_DISPLAY = 'user.email'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 
+# Jupyter Notebook
+NOTEBOOK_ARGUMENTS = [
+    '--ip=0.0.0.0',  # reach notebooks from outside
+    '--port=8080',   # std port
+    '--no-browser',  # don't start browser on start
+    '--allow-root',  # don't start browser on start
+]
+
+
 try:
     from src.settings.local import *  # noqa
 except ImportError:
