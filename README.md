@@ -19,18 +19,13 @@ What's included?
 
 How to setup project?
 ------
-1. Run `python setup.py`
+1. Run `python2 setup.py`
 2. Setup .env file according to .env.example
 3. Build project `docker-compose build`
-4. Run twice database container `docker-compose up -d database`
-    * Enter to database bash `docker-compose run database bash`
-    * Create user according to .env file `createuser --interactive -P -s`
-    * Create database according to .env file `createdb <dbname> -O <username>`
-    * Leave database container `exit`
+4. Run database container `docker-compose up -d database`
+    * (Optional) Add `PGHOST=<database-container-name>` to database environments in docker-compose.yml.
 5. Install node dependencies `docker-compose run frontend yarn`
-6. Run backend `docker-compose run backend bash`
-    * Run migrations `python manage.py migrate`
-    * Leave backend container `exit`
+6. Run migrations `docker-compose run backend python manage.py migrate`
 
 How to run project?
 ------

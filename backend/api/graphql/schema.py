@@ -1,6 +1,6 @@
 import graphene
-from api.graphql.queries import UserQuery
-from api.graphql.mutations import ChangeUserMutation
+from api.graphql.mutations.user import ChangeUserMutation
+from api.graphql.queries.user import UserQuery
 
 
 class Mutation(graphene.ObjectType):

@@ -1,5 +1,5 @@
 import graphene
-from api.graphql.types import UserType
+from api.graphql.types.user import UserType
 from django.contrib.auth.models import User as UserModel
 
 

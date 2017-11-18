@@ -20,8 +20,9 @@ services:
         container_name: docker-database
         volumes:
             - ./downloads/:/var/www/downloads
+            - ./initial.sql:/docker-entrypoint-initdb.d/initial.sql
         environment:
-            - PGHOST=docker-database
+            # - PGHOST=docker-database
             - PGUSER=postgres
     frontend:
         image: node:8
